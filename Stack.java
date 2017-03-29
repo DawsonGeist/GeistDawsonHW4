@@ -1,26 +1,27 @@
 package hw4;
-import java.util.*;
+
 public class Stack 
 {
-	ArrayList<String> queue = new ArrayList<String>();
+	NodeList stack;
 	public Stack()
 	{
-		
+		stack = new NodeList();
 	}
 	
-	public void push(String st)
+	public void push(Node st)
 	{
-		queue.add(st);
-		System.out.println(st+ " has been pushed");
+		stack.add(st);
+		System.out.println(st.getName()+ " has been pushed");
 	}
 	
-	public String pop()
+	public void pop()
 	{
-		return queue.remove(queue.size() - 1) + " has been popped";
+		System.out.println(stack.getNodeFromID((stack.getSize()-1)).getName() +" has been popped");
+		stack.deleteNode(stack.getNodeFromID((stack.getSize()-1)));
 	}
 	
-	public String peak()
+	public void peak()
 	{
-		return queue.get(queue.size() - 1) + " has been peaked";
+		System.out.println(stack.getNodeFromID((stack.getSize()-1)).getName() + " has been peaked");
 	}
 }
