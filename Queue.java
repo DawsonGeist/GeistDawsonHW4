@@ -1,32 +1,28 @@
 package hw4;
 
-import java.util.*;
-
 public class Queue 
 {
-	ArrayList<String> queue = new ArrayList<String>();
+	NodeList queue;
 	public Queue()
 	{
-		
+		queue = new NodeList();
 	}
 	
-	public void enqueue (String st)
+	public void enqueue (Node st)
 	{
 		queue.add(st);
-		System.out.println("Enqueued "+st);
+		System.out.println(st.getName() + " has been enqueued");
 	}
 	
 	public void dequeue()
 	{
-		int last = queue.size() - 1;
-		String removed = queue.get(last);
-		queue.remove(last);
-		System.out.println("Dequeued "+ removed);
+		System.out.println(queue.root.getName() + " has been dequeued");
+		queue.deleteNode(queue.root);
+		
 	}
 	
 	public String peak()
 	{
-		int last = queue.size() - 1;
-		return "Peaked " + queue.get(last);
+		return queue.root.getName() + " has been peaked";
 	}
 }
